@@ -1,0 +1,11 @@
+<!-- templates/albums_index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Albums</h1>
+    {% for album in albums %}
+        <h2>{{ album.title }}</h2>
+        <small>{{ album.description }}</small>
+        <!-- <small>{{album.category}}</small> -->
+    {% endfor %}
+{% endblock %}

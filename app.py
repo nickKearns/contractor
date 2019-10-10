@@ -1,12 +1,17 @@
 from flask import Flask, render_template
+from pymongo import MongoClient
+
+client = MongoClient()
+db = client.Contractor
+albums = db.albums
 
 app = Flask(__name__)
 
 
-albums = [
-    {'title': 'Led Zeppelin III', 'description': 'Third self titled led zeppelin album', 'category': 'classic rock'},
-    {'title': 'Led Zeppelin II', 'description': 'Second self titled led zeppelin album', 'category': 'classic rock'}
-]
+# albums = [
+#     {'title': 'Led Zeppelin III', 'description': 'Third self titled led zeppelin album', 'category': 'classic rock'},
+#     {'title': 'Led Zeppelin II', 'description': 'Second self titled led zeppelin album', 'category': 'classic rock'}
+# ]
 
 
 
@@ -18,6 +23,6 @@ def index():
 @app.route('/albums')
 def albums_index():
     '''display all albums'''
-    return render_template('albums_index.html', albums=albums)
+    return render_template('albums_index.html', albums=albums.find())
 if __name__ == '__main__':
     app.run(debug=True)

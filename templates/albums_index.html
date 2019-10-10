@@ -3,9 +3,12 @@
 
 {% block content %}
     <h1>Albums</h1>
+
+    <a href='/album/new'>New Album</a>
     {% for album in albums %}
-        <h2>{{ album.title }}</h2>
-        <small>{{ album.description }}</small>
-        <!-- <small>{{album.category}}</small> -->
+        <h2>{{ album.title }}</h2><br>
+        <small>{{ album.description }}</small><br>
+        <small>{{album.category}}</small><br>
+        <small>{{album.year_released}}</small>
     {% endfor %}
 {% endblock %}

@@ -1,0 +1,32 @@
+<!-- templates/album_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/albums'>
+    <fieldset>
+    <legend>New Album</legend>
+    <!-- TITLE -->
+    <p>
+        <label for='title'>Title</label><br>
+        <input type='text' name='title' />
+    </p>
+    <p>
+        <label for='description'>Description</label><br>
+        <input type='text' name='description' />
+    </p>
+    <p>
+        <label for='year_released'>Year Released</label><br>
+        <input type='text' name='year_released'/>
+    </p>
+    <p>
+        <label for='category'>Category</label><br>
+        <input type='text' name='category'/>
+    </p>
+    </fieldset>
+
+    <!-- BUTTON -->
+    <p>
+        <button type='submit'>Save Album</button>
+    </p>
+</form>
+{% endblock %}

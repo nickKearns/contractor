@@ -1,0 +1,11 @@
+<!-- templates/album_show.html -->
+{% extends 'base.html' %}
+
+
+{% block content %}
+<a href='/'>Back to Home</a>
+<h1>{{ album.title }}</h1>
+<h2>{{ album.description }}</h2>
+<h2>{{ album.year_released }}</h2>
+<h2>{{ album.category }}</h2>
+{% endblock %}

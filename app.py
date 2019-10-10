@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
+from bson.objectid import ObjectId
+
 
 client = MongoClient()
 db = client.Contractor
@@ -18,12 +20,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """Return homepage."""
-    return render_template('home.html', msg = 'Nicks Records')
-
-@app.route('/albums')
-def albums_index():
-    '''display all albums'''
     return render_template('albums_index.html', albums=albums.find())
+
 
 @app.route('/albums', methods=['POST'])
 def submit_album():
@@ -34,9 +32,15 @@ def submit_album():
         'year_released': request.form.get('year_released'),
         'category': request.form.get('category')
     }
-    albums.insert_one(album)
     print(request.form.to_dict())
-    return redirect(url_for('albums_index'))
+    album_id = albums.insert_one(album).inserted_id
+    return redirect(url_for('show_album', album_id=album_id))
+
+@app.route('/albums/<album_id>')
+def show_album(album_id):
+    '''show a single album'''
+    album = albums.find_one({'_id': ObjectId(album_id)})
+    return render_template('album_show.html', album=album)
 
 
 @app.route('/album/new')

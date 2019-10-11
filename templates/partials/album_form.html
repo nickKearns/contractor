@@ -2,28 +2,31 @@
 <fieldset>
         <legend>{{title}}</legend>
         <!-- TITLE -->
-        <p>
+
+        <a href='/'>Back to Home</a>
+        
+        <div class='form_group'>
             <label for='title'>Title</label><br>
             <input id='title' type='text' name='title' value='{{ album.title }}'/>
-        </p>
+        </div>
 
         <!-- DESCRIPTION -->
-        <p>
+        <div class='form_group'>
             <label for='description'>Description</label><br>
             <input id='description' type='text' name='description' value='{{ album.description }}' />
-        </p>
-        <p>
+        </div>
+        <div class='form_group'>
             <label for='year_released'>Year Released</label><br>
-            <input id='year_released' type='text' name='year released' value='{{ album.year_released }}'/>
-        </p>
-        <p>
+            <input id='year_released' type='text' name='year_released' value='{{ album.year_released }}'/>
+        </div>
+        <div class='form_group'>
             <label for='category'>Category</label><br>
-            <input id='category' type='text' name='Category' value='{{ album.category }}'/>
-        </p>
+            <input id='category' type='text' name='category' value='{{ album.category }}'/>
+        </div>
 
-        <p>
+        <div class='form_group'>
             <button type='submit'>Save Album</button>
-        </p>
+        </div>
 
         <!-- VIDEO LINKS -->
     </fieldset>

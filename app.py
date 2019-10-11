@@ -5,7 +5,7 @@ import os
 
 
 host = os.getenv('MONGODB_URI', 'mongodb://localhost:27017/contractor_new')
-client = MongoClient(host=host)
+client = MongoClient(host)
 db = client.get_default_database()
 albums = db.albums
 

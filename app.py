@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+import os
 
+
+host = os.getenv('MONGODB_URI', 'mongodb://localhost:27017/contractor')
+client = MongoClient(host=host)
+db = client.get_default_database()
+albums = db.albums
 
 client = MongoClient()
 db = client.Contractor

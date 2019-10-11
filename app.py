@@ -4,10 +4,10 @@ from bson.objectid import ObjectId
 import os
 
 
-host = os.getenv('MONGODB_URI', 'mongodb://localhost:27017/contractor')
+host = os.getenv('MONGODB_URI', 'mongodb://localhost:27017/contractor_new')
 client = MongoClient(host=host)
 db = client.get_default_database()
-albums = db.albums
+albums = db.albums1
 
 # client = MongoClient()
 # db = client.Contractor
@@ -80,4 +80,4 @@ def delete_album(album_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=os.getenv('PORT', 5000))
+    app.run(debug=True)

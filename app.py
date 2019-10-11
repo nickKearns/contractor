@@ -9,9 +9,9 @@ client = MongoClient(host=host)
 db = client.get_default_database()
 albums = db.albums
 
-client = MongoClient()
-db = client.Contractor
-albums = db.albums
+# client = MongoClient()
+# db = client.Contractor
+# albums = db.albums
 
 app = Flask(__name__)
 

@@ -1,0 +1,29 @@
+<!--templates/partials/album_form.html-->
+<fieldset>
+        <legend>{{title}}</legend>
+        <!-- TITLE -->
+        <p>
+            <label for='title'>Title</label><br>
+            <input id='title' type='text' name='title' value='{{ album.title }}'/>
+        </p>
+
+        <!-- DESCRIPTION -->
+        <p>
+            <label for='description'>Description</label><br>
+            <input id='description' type='text' name='description' value='{{ album.description }}' />
+        </p>
+        <p>
+            <label for='year_released'>Year Released</label><br>
+            <input id='year_released' type='text' name='year released' value='{{ album.year_released }}'/>
+        </p>
+        <p>
+            <label for='category'>Category</label><br>
+            <input id='category' type='text' name='Category' value='{{ album.category }}'/>
+        </p>
+
+        <p>
+            <button type='submit'>Save Album</button>
+        </p>
+
+        <!-- VIDEO LINKS -->
+    </fieldset>

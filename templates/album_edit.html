@@ -1,8 +1,11 @@
-<!-- templates/album_new.html -->
+<!-- templates/album_edit.html -->
 {% extends 'base.html' %}
 
 {% block content %}
-<form method='POST' action='/albums'>
+<form method='POST' action='/albums/{{album._id}}'>
     {% include 'partials/album_form.html' %}
+
+    <!-- BUTTON -->
+    
 </form>
 {% endblock %}

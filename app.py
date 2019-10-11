@@ -10,10 +10,7 @@ albums = db.albums
 app = Flask(__name__)
 
 
-# albums = [
-#     {'title': 'Led Zeppelin III', 'description': 'Third self titled led zeppelin album', 'category': 'classic rock'},
-#     {'title': 'Led Zeppelin II', 'description': 'Second self titled led zeppelin album', 'category': 'classic rock'}
-# ]
+
 
 
 
@@ -46,10 +43,29 @@ def show_album(album_id):
 @app.route('/album/new')
 def create_album():
     '''create a new album'''
-    return render_template('album_new.html')
+    return render_template('album_new.html', album = {}, title = 'New Album')
 
 
+@app.route('/albums/<album_id>/edit')
+def albums_edit(album_id):
+    """Show the edit form for a playlist."""
+    album = albums.find_one({'_id': ObjectId(album_id)})
+    return render_template('album_edit.html', album=album, title = 'Edit Album')
 
+
+@app.route('/albums/<album_id>', methods=['POST'])
+def album_update(album_id):
+    updated_album = {
+        'title': request.form.get('title'),
+        'description': request.form.get('description'),
+        'year_released': request.form.get('year_released'),
+        'category': request.form.get('category')
+    }
+    albums.update_one(
+        {'_id': ObjectId(album_id)},
+        {'$set': updated_album}
+    )
+    return redirect(url_for('show_album', album_id=album_id))
 
 
 if __name__ == '__main__':

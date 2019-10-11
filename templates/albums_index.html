@@ -11,6 +11,9 @@
         <small>{{ album.description }}</small><br>
         <small>{{album.category}}</small><br>
         <small>{{album.year_released}}</small>
-        
+        <!-- Delete button -->
+    <p><form method='POST' action='/albums/{{ album._id }}/delete'>
+        <button type='submit'>Delete</button>
+    </form></p>
     {% endfor %}
 {% endblock %}

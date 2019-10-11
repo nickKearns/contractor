@@ -67,6 +67,11 @@ def album_update(album_id):
     )
     return redirect(url_for('show_album', album_id=album_id))
 
+@app.route('/albums/<album_id>/delete', methods=['POST'])
+def delete_album(album_id):
+    albums.delete_one({'_id': ObjectId(album_id)})
+    return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)

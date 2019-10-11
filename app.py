@@ -7,11 +7,8 @@ import os
 host = os.getenv('MONGODB_URI', 'mongodb://localhost:27017/contractor_new')
 client = MongoClient(host=host)
 db = client.get_default_database()
-albums = db.albums1
+albums = db.albums
 
-# client = MongoClient()
-# db = client.Contractor
-# albums = db.albums
 
 app = Flask(__name__)
 
@@ -35,7 +32,7 @@ def submit_album():
         'year_released': request.form.get('year_released'),
         'category': request.form.get('category')
     }
-    print(request.form.to_dict())
+
     album_id = albums.insert_one(album).inserted_id
     return redirect(url_for('show_album', album_id=album_id))
 
